@@ -61,8 +61,9 @@ namespace CPE200Lab1
                     }
                     break;
                 case "%":
-                    //your code here
-                    break;
+					return (Convert.ToDouble(firstOperand) / Convert.ToDouble(100)).ToString();
+					//your code here
+					break;
             }
             return "E";
         }
@@ -109,9 +110,24 @@ namespace CPE200Lab1
                 return;
             }
             if (isAfterOperater)
-            {
-                return;
-            }
+			{
+				if (lblDisplay.Text is "Error")
+				{
+					return;
+				}
+				string secondOperand = lblDisplay.Text;
+				string result = calculate(operate, firstOperand, secondOperand);
+				if (result is "E" || result.Length > 8)
+				{
+					lblDisplay.Text = "Error";
+				}
+				else
+				{
+					lblDisplay.Text = result;
+				}
+				isAfterEqual = true;
+				return;
+			}
             operate = ((Button)sender).Text;
             switch (operate)
             {

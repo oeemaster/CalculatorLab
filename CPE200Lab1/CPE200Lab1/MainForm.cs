@@ -109,12 +109,12 @@ namespace CPE200Lab1
             {
                 return;
             }
-            if (isAfterOperater)
+			if (isAfterOperater)
 			{
-				if (lblDisplay.Text is "Error")
-				{
-					return;
-				}
+				return;
+			}
+			if (firstOperand != null)
+			{
 				string secondOperand = lblDisplay.Text;
 				string result = calculate(operate, firstOperand, secondOperand);
 				if (result is "E" || result.Length > 8)
@@ -124,11 +124,10 @@ namespace CPE200Lab1
 				else
 				{
 					lblDisplay.Text = result;
+					firstOperand = result;
 				}
-				isAfterEqual = true;
-				return;
 			}
-            operate = ((Button)sender).Text;
+			operate = ((Button)sender).Text;
             switch (operate)
             {
                 case "+":

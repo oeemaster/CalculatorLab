@@ -14,6 +14,13 @@ namespace CPE200Lab1
             return Double.TryParse(str, out retNum);
         }
 
+        protected bool isOver9000(string str)
+        {
+            double retNum;
+            return Double.TryParse(str, out retNum);
+        }
+
+
         protected bool isOperator(string str)
         {
             switch(str) {
@@ -127,7 +134,7 @@ namespace CPE200Lab1
                         // calculate remaining space for fractional part.
                         remainLength = maxOutputSize - parts[0].Length - 1;
                         // trim the fractional part gracefully. =
-                        return result.ToString("N" + remainLength);
+                        return result.ToString("G4");
                     }
                     break;
                 case "%":
